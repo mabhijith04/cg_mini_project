@@ -128,6 +128,49 @@ void myInit()
 	setFont(GLUT_BITMAP_HELVETICA_18);
 	
 }
+void draw_bts(GLint x,GLint y)
+{ 
+  glBegin(GL_LINES);
+   glColor3f(.5,.4,1);
+   glVertex2d(x,y);
+   glVertex2d(x+17,y+60+60);
+  glEnd(); 
+  glBegin(GL_LINES);
+   glColor3f(.5,.4,1);
+   glVertex2d(x+17,y+60+60);
+   glVertex2d(x+30,y);
+  glEnd();
+  glBegin(GL_LINES);
+   glColor3f(.5,.5,.5);
+   glVertex2d(x+11,y+80);
+   glVertex2d(x+21,y+80);
+  glEnd();
+  glBegin(GL_LINES);
+   glColor3f(.5,.5,.5);
+   glVertex2d(x+21,y+80);
+   glVertex2d(x+6,y+40);
+  glEnd();
+  glBegin(GL_LINES);
+   glColor3f(.5,.5,.5);
+   glVertex2d(x+26,y+40);
+   glVertex2d(x+11,y+80);
+  glEnd();		
+  glBegin(GL_LINES);
+   glColor3f(.5,.5,.5);
+   glVertex2d(x+6,y+40);
+   glVertex2d(x+30,y);
+  glEnd();
+  glBegin(GL_LINES);
+   glColor3f(.5,.5,.5);
+   glVertex2d(x+26,y+40);
+   glVertex2d(x,y);
+  glEnd();
+  glBegin(GL_LINES);
+   glColor3f(.5,.5,.5);
+   glVertex2d(x+6,y+40);
+   glVertex2d(x+26,y+40);
+  glEnd();
+}  
 
 void mobile_stn()		// to draw the sender and receiver MS
 {
@@ -135,23 +178,74 @@ void mobile_stn()		// to draw the sender and receiver MS
 
 	glColor3f(1.0f,1.0f,1.0f);
 	setFont(GLUT_BITMAP_HELVETICA_12);
- 	drawstring(95.0,420.0,1.0,"SENDER");
+ 	drawstring(95.0,20.0,1.0,"SENDER");
 
 	glColor3f(1.0f,1.0f,1.0f);
- 	drawstring(345.0,420.0,1.0,"RECEIVER");
+ 	drawstring(345.0,20.0,1.0,"RECEIVER");
+        glColor3f(1.0f,1.0f,1.0f);
+ 	drawstring(70.0,100.0,1.0,"BTS");
+	glColor3f(1.0f,1.0f,1.0f);
+ 	drawstring(400.0,100.0,1.0,"BTS");
 	
 	/*Sender MS code*/
+	glBegin(GL_QUADS);
+         glColor3f(0.2,.2,0.2);
+	 glVertex2f(75.0+20,30.0);
+	 glVertex2f(100.0+20,30.0);
+	 glVertex2f(100.0+20,90.0);
+	 glVertex2f(75.0+20,90.0);
+	glEnd();
+	glBegin(GL_QUADS);
+         glColor3f(.5,0.1,.4);
+         glVertex2f(120,90);
+	 glVertex2f(120,110);
+	 glVertex2f(115,110);
+	 glVertex2f(115,90);
+	glEnd();
+	glBegin(GL_QUADS);
+         glColor3f(0,0,1);
+         glVertex2f(100-3,80+4);
+	 glVertex2f(100-3,60);
+	 glVertex2f(115+3,60);
+ 	 glVertex2f(115+3,80+4);
+	glEnd();
 	/*Reciever MS code*/
-        //BSS code
+glBegin(GL_QUADS);
+         glColor3f(0.2,.2,0.2);
+	 glVertex2f(250+75.0+20,30.0);
+	 glVertex2f(250+100.0+20,30.0);
+	 glVertex2f(250+100.0+20,90.0);
+	 glVertex2f(250+75.0+20,90.0);
+	glEnd();
+	glBegin(GL_QUADS);
+         glColor3f(.5,0.1,.4);
+         glVertex2f(250+120,90);
+	 glVertex2f(250+120,110);
+	 glVertex2f(250+115,110);
+	 glVertex2f(250+115,90);
+	glEnd();
+	glBegin(GL_QUADS);
+         glColor3f(0,0,1);
+         glVertex2f(250+100-3,80+4);
+	 glVertex2f(250+100-3,60);
+	 glVertex2f(250+115+3,60);
+ 	 glVertex2f(250+115+3,80+4);
+	glEnd();
+	//sender BTS code
+        draw_bts(60,120);
+	//reciever BTS code
+        draw_bts(390,120);
+	//BSS code
+	
+	
 	//VLR code
 	//HLR code
 	//any other code for drawing 
 
 	
 
-	
+	glFlush();
 }
-   
 void delay()
 {
   j=20000;
@@ -325,10 +419,11 @@ void display(void)
 {  
 
 	glClear(GL_COLOR_BUFFER_BIT);
-	title();
-	delay();delay();delay();
-	draw();
-	text();
+	//title();
+	//delay();//delay();delay();
+	//draw();
+	//text();
+	mobile_stn();
 }
 
 
