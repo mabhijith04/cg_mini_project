@@ -10,9 +10,6 @@ void setFont(void *font)
 {
 	currentfont=font;
 }
-
-
-
 void drawstring(float x,float y,float z,char *str)
 {
 	    char *c;
@@ -23,42 +20,27 @@ void drawstring(float x,float y,float z,char *str)
 		glutBitmapCharacter(currentfont,*c);
 	}
 }
-
-
-
 void text(void)											// to draw the text in menu screen
 {
-
-	
-
 	setFont(GLUT_BITMAP_HELVETICA_18);
 	glColor3f(1.0,1.0,1.0);
 	drawstring(95.0,455.0,1.0,"*  *  *  *  *  *  *  *  *  GSM CALL SETUP PROCEDURE  *  *  *  *  *  *  *  *  *");
-
 	glColor3f(1.0,1.0,1.0);
 	drawstring(210.0,405.0,1.0,"First Use");				
-
 	glColor3f(1.0,1.0,1.0);
 	drawstring(200.0,350.0,1.0," Initiate Local Call");
-
 	glColor3f(1.0,1.0,1.0);
 	drawstring(210.0,295.0,1.0,"Initaite STD call");
-
 	glColor3f(1.0,1.0,1.0);
 	drawstring(200.0,240.0,1.0,"Some String");
-
 	glColor3f(1.0,1.0,1.0);
 	drawstring(215.0,185.0,1.0,"Some String");
-	
 	glColor3f(1.0,1.0,1.0);
 	drawstring(225.0,130.0,1.0,"  EXIT");
 	glFlush();
 }
-
-
 void draw() // TO DRAW POLYGON FOR DISPLAY MENUS 
 {
-
 	glClear(GL_COLOR_BUFFER_BIT);
     glBegin(GL_POLYGON);   //First use
 	glColor3f(0.7f,0.2f,0.2f);
@@ -68,7 +50,6 @@ void draw() // TO DRAW POLYGON FOR DISPLAY MENUS
     glVertex2i(305,395);
 	glEnd();
 	glFlush();
-
 	glBegin(GL_POLYGON);  // Local Call
 	glColor3f(0.7f,0.2f,0.2f);
     glVertex2i(305,370);
@@ -77,7 +58,6 @@ void draw() // TO DRAW POLYGON FOR DISPLAY MENUS
     glVertex2i(305,340);
 	glEnd();
 	glFlush();
-
 	glBegin(GL_POLYGON);  // STD CAll 
 	glColor3f(0.7f,0.2f,0.2f);
     glVertex2i(305,315);
@@ -86,7 +66,6 @@ void draw() // TO DRAW POLYGON FOR DISPLAY MENUS
     glVertex2i(305,285);
 	glEnd();
 	glFlush();
-
 	glBegin(GL_POLYGON);  // Func 1
 	glColor3f(0.7f,0.2f,0.2f);
     glVertex2i(305,260);
@@ -95,7 +74,6 @@ void draw() // TO DRAW POLYGON FOR DISPLAY MENUS
     glVertex2i(305,230);
 	glEnd();
 	glFlush();
-
 	glBegin(GL_POLYGON);  // Func 2
 	glColor3f(0.7f,0.2f,0.2f);
     glVertex2i(305,205);
@@ -104,7 +82,6 @@ void draw() // TO DRAW POLYGON FOR DISPLAY MENUS
     glVertex2i(305,175);
 	glEnd();
 	glFlush();
-
 	glBegin(GL_POLYGON);  // exit
 	glColor3f(0.7f,0.2f,0.2f);
     glVertex2i(305,150);
@@ -113,10 +90,7 @@ void draw() // TO DRAW POLYGON FOR DISPLAY MENUS
     glVertex2i(305,120);
 	glEnd();
 	glFlush();
-
 }
-		
-
 void myInit()
 {
     glClearColor(0.0,0.0,0.0,0.0);
@@ -126,7 +100,6 @@ void myInit()
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	setFont(GLUT_BITMAP_HELVETICA_18);
-	
 }
 void draw_bts(GLint x,GLint y)
 { 
@@ -194,11 +167,8 @@ void draw_bsc(GLint x,GLint y)
 }
 void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
 {
-
 	float i,j,temp=0.1;
-
-    
-	float k=0;
+    //move 1
     for(i=0;i<51;i=i+temp) //movement of data packet sidewise
 	 {   glColor3f(1,0,0);
 		 glBegin(GL_QUADS);
@@ -212,133 +182,279 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
     glEnd();
     glFlush();
 	}
-   for(j=0;j<60;j=j+temp) //movement of data packet from top to down
+	//move 2
+   for(j=0;j<62;j=j+temp) //movement of data packet from top to down
 	 {   glColor3f(1,0,0);
 		 glBegin(GL_QUADS);
 	  glVertex2i(40,70+j);glVertex2i(40,75+j);glVertex2i(45,75+j);glVertex2i(45,70+j);
     glEnd();
     glFlush();
-
-	//k+=0.05;
-	//timer(k,102.5,122,128);
-
-	
+    glColor3f(0,0,0);
+	 glBegin(GL_QUADS);
+	  glVertex2i(40,69+j);glVertex2i(40,74+j);glVertex2i(45,74+j);glVertex2i(45,69+j);
+    glEnd();
+    glFlush();
+	 }
 	 glColor3f(0,0,0);
 		 glBegin(GL_QUADS);
 	  glVertex2i(40,69+j);glVertex2i(40,74+j);glVertex2i(45,74+j);glVertex2i(45,69+j);
-
     glEnd();
-
     glFlush();
-	 }
+    //move 3
     for(i=0;i<57;i=i+temp) //movement of data packet sidewise
 	 {   glColor3f(1,0,0);
 		 glBegin(GL_QUADS);
 	  glVertex2i(77+i,130-3);glVertex2i(77+i,135-3);glVertex2i(72+i,135-3);glVertex2i(72+i,130-3);
     glEnd();
     glFlush();
-	
       glColor3f(0,0,0);   // to remove traces create movement of frame in black
 		 glBegin(GL_QUADS);
 	  glVertex2i(72+5+i,130-3);glVertex2i(72+5+i,135-3);glVertex2i(72+i,135-3);glVertex2i(72+i,130-3);
     glEnd();
     glFlush();
 	}
-	 for(j=0;j<123;j=j+temp) //movement of data packet from top to down
+	//move 4
+	 for(j=0;j<122;j=j+temp) //movement of data packet from top to down
 	 {   glColor3f(1,0,0);
 		 glBegin(GL_QUADS);
 	  glVertex2i(130,140+j);glVertex2i(135,145+j);glVertex2i(130,145+j);glVertex2i(135,140+j);
     glEnd();
     glFlush();
-
-	//k+=0.05;
-	//timer(k,102.5,122,128);
-
-	
-	 glColor3f(0,0,0);
+    glColor3f(0,0,0);
 		 glBegin(GL_QUADS);
-	  glVertex2i(40,69+j);glVertex2i(40,74+j);glVertex2i(45,74+j);glVertex2i(45,69+j);
+	  glVertex2i(130,136+j);glVertex2i(135,141+j);glVertex2i(130,141+j);glVertex2i(135,136+j);
     glEnd();
     glFlush();
-	 }
-/*	
-   for(j=0;j<4;j=j+temp) //movement of data packet within the frame
-	 {   glColor3f(1,0,0);
-		 glBegin(GL_QUADS);
-	  glVertex2i(100,60-j);glVertex2i(55,280-j);glVertex2i(60,280-j);glVertex2i(60,265-j);
-    glEnd();
-    glFlush();
-
-		
-	 glColor3f(0,0,0);   // to remove traces create movement of frame in black
-		 glBegin(GL_QUADS);
-	  glVertex2i(55,265-j);glVertex2i(55,280-j);glVertex2i(60,280-j);glVertex2i(60,265-j);
-    glEnd();
-    glFlush();
-	 }
-
-    
-	 for(j=0;j<60;j=j+temp) //movement of data packet from top to down
-	 {   glColor3f(1,0,0);
-		 glBegin(GL_QUADS);
-	  glVertex2i(55,238-j);glVertex2i(55,253-j);glVertex2i(60,253-j);glVertex2i(60,238-j);
-    glEnd();
-    glFlush();
-
-	k+=0.05;
-	//timer(k,102.5,122,128);
-
-	
-	 glColor3f(0,0,0);
-		 glBegin(GL_QUADS);
-	  glVertex2i(55,238-j);glVertex2i(55,253-j);glVertex2i(60,253-j);glVertex2i(60,238-j);
-    glEnd();
-    glFlush();
-	 }
-
-	
- 
-	
-
-	k+=0.05;
-	//timer(k,102.5,122,128);
-
-	
-   glColor3f(0,0,0);
-		 glBegin(GL_QUADS);
-	  glVertex2i(60+i,178);glVertex2i(60+i,183);glVertex2i(75+i,183);glVertex2i(75+i,178);
-    glEnd();
-    glFlush();
- }
-
-  
-
-
-for(j=0;j<60;j=j+temp) //to move the  packet from bottom to top
-{
-	glColor3f(1,0,0); 
-		 glBegin(GL_QUADS);
-	  glVertex2i(305,178+j);glVertex2i(305,193+j);glVertex2i(310,193+j);glVertex2i(310,178+j);
-    glEnd();
-    glFlush();
-	
-	k+=0.05;
-	//timer(k,102.5,122,128);
-
-	glColor3f(0,0,0); 
-		 glBegin(GL_QUADS);
-	  glVertex2i(305,178+j);glVertex2i(305,193+j);glVertex2i(310,193+j);glVertex2i(310,178+j);
-    glEnd();
-      glFlush(); 
-
 	}
-   
+    for(j=0;j<5;j=j+temp) //movement of data packet from top to down
+	 {	
+	 	 glColor3f(0,0,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(130,260+j);glVertex2i(135,265+j);glVertex2i(130,265+j);glVertex2i(135,260+j);
+    glEnd();
+    glFlush();
+    }
+    //move 5
+    for(j=0;j<50;j=j+temp) //movement of data packet from top to down
+	 {   glColor3f(1,0,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(130,354+j);glVertex2i(135,354+j);glVertex2i(135,359+j);glVertex2i(130,359+j);
+    glEnd();
+    glFlush();
+	 glColor3f(0,0,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(130,352+j);glVertex2i(135,352+j);glVertex2i(135,357+j);glVertex2i(130,357+j);
+    glEnd();
+    glFlush();
+	}
+	for(j=0;j<5;j=j+temp) //movement of data packet from top to down
+	 {	
+	 	 glColor3f(0,0,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(130,402+j);glVertex2i(135,402+j);glVertex2i(130,407+j);glVertex2i(135,407+j);
+    glEnd();
+    glFlush();
+    }
+    //move 6
+    for(i=0;i<97;i=i+temp) //movement of data packet sidewise
+	 {   glColor3f(1,0,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(132+i,406);glVertex2i(137+i,406);glVertex2i(137+i,411);glVertex2i(132+i,411);
+    glEnd();
+    glFlush();
+      glColor3f(0,0,0);   // to remove traces create movement of frame in black
+		 glBegin(GL_QUADS);
+	  glVertex2i(132+i,406);glVertex2i(137+i,406);glVertex2i(137+i,411);glVertex2i(132+i,411);
+    glEnd();
+    glFlush();
+	}
+	//move 7
+	for(j=0;j<50;j=j+temp) //movement of data packet from top to down
+	 {   glColor3f(1,0,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(232,409-j);glVertex2i(232,404-j);glVertex2i(237,404-j);glVertex2i(237,409-j);
+    glEnd();
+    glFlush();
+	 glColor3f(0,0,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(232,409-j);glVertex2i(232,404-j);glVertex2i(237,404-j);glVertex2i(237,409-j);
+    glEnd();
+    glFlush();
+	}
+	//move 8
+	for(j=0;j<50;j=j+temp) //movement of data packet from top to down
+	 {   glColor3f(1,0,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(305,357+j);glVertex2i(305,352+j);glVertex2i(310,352+j);glVertex2i(310,357+j);
+    glEnd();
+    glFlush();
+	 glColor3f(0,0,0);
+		 glBegin(GL_QUADS);
+	 glVertex2i(305,357+j);glVertex2i(305,352+j);glVertex2i(310,352+j);glVertex2i(310,357+j);
+    glEnd();
+    glFlush();
+	}
+	//move 9
+    for(i=0;i<18;i=i+temp) //movement of data packet sidewise
+	 {   glColor3f(1,0,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(312+i,407);glVertex2i(312+i,402);glVertex2i(317+i,402);glVertex2i(317+i,407);
+    glEnd();
+    glFlush();
+      glColor3f(0,0,0);   // to remove traces create movement of frame in black
+		 glBegin(GL_QUADS);
+	  glVertex2i(312+i,407);glVertex2i(312+i,402);glVertex2i(317+i,402);glVertex2i(317+i,407);
+    glEnd();
+    glFlush();
+	}
+	//move 10
+	for(j=0;j<40;j=j+temp) //movement of data packet from top to down
+	 {   glColor3f(1,0,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(335,397-j);glVertex2i(335,392-j);glVertex2i(340,392-j);glVertex2i(340,397-j);
+    glEnd();
+    glFlush();
+	 glColor3f(0,0,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(335,397-j);glVertex2i(335,392-j);glVertex2i(340,392-j);glVertex2i(340,397-j);
+    glEnd();
+    glFlush();
+	}
+	//move -10
+	for(j=0;j<30;j=j+temp) //movement of data packet from top to down
+	 {   glColor3f(0,1,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(335,397+j);glVertex2i(335,392+j);glVertex2i(340,392+j);glVertex2i(340,397+j);
+    glEnd();
+    glFlush();
+	 glColor3f(0,0,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(335,397+j);glVertex2i(335,392+j);glVertex2i(340,392+j);glVertex2i(340,397+j);
+    glEnd();
+    glFlush();
+	}
+	//move -9
+    for(i=0;i<18;i=i+temp) //movement of data packet sidewise
 	
-   // delay();
+	 {   glColor3f(0,1,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(312-i,427);glVertex2i(312-i,422);glVertex2i(317-i,422);glVertex2i(317-i,427);
+    glEnd();
+    glFlush();
+      glColor3f(0,0,0);   // to remove traces create movement of frame in black
+		 glBegin(GL_QUADS);
+	  glVertex2i(312-i,427);glVertex2i(312-i,422);glVertex2i(317-i,422);glVertex2i(317-i,427);
+    glEnd();
+    glFlush();
+	}
+//move -8
+	for(j=0;j<50;j=j+temp) //movement of data packet from top to down
+	 {   glColor3f(0,1,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(294,407-j);glVertex2i(294,402-j);glVertex2i(299,402-j);glVertex2i(299,407-j);
+    glEnd();
+    glFlush();
+	 glColor3f(0,0,0);
+		 glBegin(GL_QUADS);
+	 glVertex2i(294,407-j);glVertex2i(294,402-j);glVertex2i(299,402-j);glVertex2i(299,407-j);
+    glEnd();
+    glFlush();
+	}
+//move -7
+	for(j=0;j<50;j=j+temp) //movement of data packet from top to down
+	 {   glColor3f(0,1,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(232,355+j);glVertex2i(232,350+j);glVertex2i(237,350+j);glVertex2i(237,355+j);
+    glEnd();
+    glFlush();
+	 glColor3f(0,0,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(232,355+j);glVertex2i(232,350+j);glVertex2i(237,350+j);glVertex2i(237,355+j);
+    glEnd();
+    glFlush();
+	}
+	//move -6
+    for(i=0;i<97;i=i+temp) //movement of data packet sidewise
+	 {   glColor3f(0,1,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(232-i,406);glVertex2i(237-i,406);glVertex2i(237-i,411);glVertex2i(232-i,411);
+    glEnd();
+    glFlush();
+      glColor3f(0,0,0);   // to remove traces create movement of frame in black
+		 glBegin(GL_QUADS);
+	  glVertex2i(232-i,406);glVertex2i(237-i,406);glVertex2i(237-i,411);glVertex2i(232-i,411);
+    glEnd();
+    glFlush();
+	}
+	//move -5
+   for(j=0;j<48;j=j+temp) //movement of data packet from top to down
+	 {   glColor3f(0,1,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(130,406-j);glVertex2i(135,406-j);glVertex2i(135,401-j);glVertex2i(130,401-j);
+    glEnd();
+    glFlush();
+	 glColor3f(0,0,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(130,406-j);glVertex2i(135,406-j);glVertex2i(135,401-j);glVertex2i(130,401-j);
+    glEnd();
+    glFlush();
+	}
+	//move -4
+	 for(j=0;j<122;j=j+temp) //movement of data packet from top to down
+	 {   glColor3f(0,1,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(130,270-j);glVertex2i(135,270-j);glVertex2i(135,265-j);glVertex2i(130,265-j);
+    glEnd();
+    glFlush();
+    glColor3f(0,0,0);
+		 glBegin(GL_QUADS);
+	 	  glVertex2i(130,270-j);glVertex2i(135,270-j);glVertex2i(135,265-j);glVertex2i(130,265-j);
+    glEnd();
+
+    glEnd();
+    glFlush();
+	}
+    //move -3
+   for(i=0;i<57;i=i+temp) //movement of data packet sidewise
+	 {   glColor3f(0,1,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(130-i,132);glVertex2i(130-i,127);glVertex2i(135-i,127);glVertex2i(135-i,132);
+    glEnd();
+    glFlush();
+      glColor3f(0,0,0);   // to remove traces create movement of frame in black
+		 glBegin(GL_QUADS);
+	  glVertex2i(130-i,132);glVertex2i(130-i,127);glVertex2i(135-i,127);glVertex2i(135,132);
+    glEnd();
+    glFlush();
+	}
+	//move -2
+   for(j=0;j<50;j=j+temp) //movement of data packet from top to down
+	 {   glColor3f(0,1,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(45,130-j);glVertex2i(50,130-j);glVertex2i(45,125-j);glVertex2i(50,125-j);
+    glEnd();
+    glFlush();
+   glColor3f(0,0,0);
+	 glBegin(GL_QUADS);
+	  glVertex2i(45,130-j);glVertex2i(50,130-j);glVertex2i(45,125-j);glVertex2i(50,125-j);
+    glEnd();
+    glFlush();
+	 }
+	 //move -1
+    for(i=0;i<40;i=i+temp) //movement of data packet sidewise
+	 {   glColor3f(0,1,0);
+		 glBegin(GL_QUADS);
+	  glVertex2i(45+i,80);glVertex2i(50+i,80);glVertex2i(45+i,75);glVertex2i(45+i,75);
+    glEnd();
+    glFlush();
 	
-*/	
+      glColor3f(0,0,0);   // to remove traces create movement of frame in black
+		 glBegin(GL_QUADS);
+	   glVertex2i(45+i,80);glVertex2i(50+i,80);glVertex2i(45+i,75);glVertex2i(45+i,75);
+    glEnd();
+    glFlush();
+	}
 }
-	
 void mobile_stn(int choice)		// to draw the sender and receiver MS
 { int j;
 	switch(choice)
@@ -382,15 +498,11 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
  				drawstring(365.0,310.0,1.0,"HLR");int temp=5;
  				move1();
  				break;
-
-	glColor3f(1.0f,1.0f,1.0f);
+	/*glColor3f(1.0f,1.0f,1.0f);
  	drawstring(345.0,20.0,1.0,"RECEIVER");
-    
 	glColor3f(1.0f,1.0f,1.0f);
  	drawstring(400.0,100.0,1.0,"BTS");
-	
-	
-	/*Reciever MS code*/
+	/*Reciever MS code
 	glBegin(GL_QUADS);
      glColor3f(0.2,.2,0.2);
 	 glVertex2f(250+75.0+20,30.0);
@@ -417,94 +529,42 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
 	//reciever BTS code
         draw_bts(390,120);
 	//BSS code
-	
-	
 	//VLR code
 	//HLR code
 	//any other code for drawing 
-
-	
-
 	}
 	glFlush();
+	*/
+	}//end of switch
 }
-void delay()
-{
-  j=20000;
-	while(j!=0)
-	{
-		j--;
-		i=20000;
-		while(i!=0)
-		{
-			i--;
-			
-		}
-	}
-
-
-}
-
-void timer(float k,float l,float m,float n)
-{
-glColor3f(1.4,1.9,0.78);
-    glBegin(GL_POLYGON);         // to call timer functions
-		glVertex2f(l,m);
-	    glVertex2f(l,n);
-		glVertex2f(l+k,m);
-    glEnd();
-	glFlush();
-
-}
-
-
 
 void title()												// to draw the starting screen
 {
 		glClear(GL_COLOR_BUFFER_BIT);
 	setFont(GLUT_BITMAP_HELVETICA_18);
-
-
 	glColor3f(1.0,1.0,1.0);
 	drawstring(20.0,435.0,1.0,"*  * G R A P H I C A L   I L L U S T R A T I O N   OF   GSM CALL SETUP *  *");
-	
 	glColor3f(1.0,1.0,1.0);
 	drawstring(210.0,365.0,1.0,"SUBMITTED   BY");				
-	
 	glColor3f(0.0,1.0,1.0);
 	drawstring(180.0,340.0,1.0," Nitesh A Jain      1BY10CS047");
-	
 	glColor3f(0.0,1.0,1.0);
 	drawstring(180.0,320.0,1.0," Parthasarathy M Alwar       1BY10CS049");
-	
 	glColor3f(1.0,1.0,1.0);
 	drawstring(190.0,260.0,1.0,"UNDER THE GUIDANCE OF");
-	
 	glColor3f(0.0,1.0,1.0);
 	drawstring(70.0,230.0,1.0," Guide ");
-
 		setFont(GLUT_BITMAP_HELVETICA_12);
-
 	glColor3f(0.0,1.0,1.0);
 	drawstring(190.0,230.0,1.0," Guide Degrees .");		
-	
 	glColor3f(0.0,1.0,1.0);
 	drawstring(70.0,215.0,1.0,"  Lecturer, Dept. of CS&E");
-
 	glColor3f(0.0,1.0,1.0);
 	drawstring(70.0,200.0,1.0,"  BMSIT");
-  
 	glFlush();
 }
-	
-
-
-
-
 void draw_key_int(void)				// text for keyboard interaction
-
 {
-
 	glColor3f(0.0,0.0,0.0);
 	glBegin(GL_POLYGON);
 	glVertex2f(0,0);
@@ -513,8 +573,6 @@ void draw_key_int(void)				// text for keyboard interaction
 	glVertex2f(500,0);
 	glEnd();
 	glFlush();
-
-
 	glColor3f(1.0f,1.0f,1.0f);
 	setFont(GLUT_BITMAP_HELVETICA_18);
 	drawstring(360.0,130.0,1.0,"DO U WISH TO CONTINUE?");
@@ -582,17 +640,17 @@ void display(void)
 	//text();glClearColor(0.0,0.0,0.0,0.0);
         mobile_stn(1);
 }
-
-
-
 int main(int argc,char **argv)
 {
 	glutInit(&argc,argv);
 	glutInitDisplayMode(GLUT_SINGLE|GLUT_RGBA);
   	glutInitWindowPosition(0,0);
 	glutInitWindowSize(1000,1000);
+	
 	glutCreateWindow("GSM CALL SETUP");
+    
     glutDisplayFunc(display);
+	
 	glutMouseFunc(myMouse);
 	glutKeyboardFunc(mykeyboard);
 	myInit();
