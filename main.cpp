@@ -169,93 +169,93 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
 {
 	float i,j,temp=0.1;
     //move 1
-    
-     glColor3f(1.0,0.0,0.0);
-	drawstring(210.0,5.0,1.0,"Phone Sends packet on network");
-    
-    for(i=0;i<51;i=i+temp) //movement of data packet sidewise
+         glColor3f(1.0,0.0,0.0);
+	 drawstring(210.0,5.0,1.0,"Phone Sends packet on network");
+         for(i=0;i<51;i=i+temp) //movement of data packet sidewise
 	 {   glColor3f(1,0,0);
-		 glBegin(GL_QUADS);
-	  glVertex2i(95-i,60);glVertex2i(95-i,65);glVertex2i(90-i,65);glVertex2i(90-i,60);
-    glEnd();
-    glFlush();
-	
-      glColor3f(0,0,0);   // to remove traces create movement of frame in black
-		 glBegin(GL_QUADS);
-	  glVertex2i(90+5-i,60);glVertex2i(90+5-i,65);glVertex2i(85+5-i,65);glVertex2i(85+5-i,60);
-    glEnd();
-    glFlush();
+	     glBegin(GL_QUADS);
+	     glVertex2i(95-i,60);glVertex2i(95-i,65);glVertex2i(90-i,65);glVertex2i(90-i,60);
+    	     glEnd();
+   	     glFlush();
+             glColor3f(0,0,0);   // to remove traces create movement of frame in black
+	     glBegin(GL_QUADS);
+	      glVertex2i(90+5-i,60);glVertex2i(90+5-i,65);glVertex2i(85+5-i,65);glVertex2i(85+5-i,60);
+   	     glEnd();
+             glFlush();
 	}
 	glColor3f(0.0,1.0,0.0);
 	drawstring(210.0,5.0,1.0,"Phone Sends packet on network");
 	//move 2
-	
-   for(j=0;j<62;j=j+temp) //movement of data packet from top to down
+	for(j=0;j<62;j=j+temp) //movement of data packet from top to down
 	 {   glColor3f(1,0,0);
 		 glBegin(GL_QUADS);
-	  glVertex2i(40,70+j);glVertex2i(40,75+j);glVertex2i(45,75+j);glVertex2i(45,70+j);
-    glEnd();
-    glFlush();
-    glColor3f(0,0,0);
-	 glBegin(GL_QUADS);
-	  glVertex2i(40,69+j);glVertex2i(40,74+j);glVertex2i(45,74+j);glVertex2i(45,69+j);
-    glEnd();
-    glFlush();
+	  	  glVertex2i(40,70+j);glVertex2i(40,75+j);glVertex2i(45,75+j);glVertex2i(45,70+j);
+    	 glEnd();
+    	 glFlush();
+    	 glColor3f(0,0,0);
+	 	 glBegin(GL_QUADS);
+	  		glVertex2i(40,69+j);glVertex2i(40,74+j);glVertex2i(45,74+j);glVertex2i(45,69+j);
+    	 glEnd();
+    	 glFlush();
 	 }
 	 glColor3f(0,0,0);
-		 glBegin(GL_QUADS);
-	  glVertex2i(40,69+j);glVertex2i(40,74+j);glVertex2i(45,74+j);glVertex2i(45,69+j);
-    glEnd();
-    glFlush();
-    glColor3f(0.0,0.0,0.0);
-	drawstring(210.0,5.0,1.0,"Phone Sends packet on network");
-    glColor3f(1.0,0.0,0.0);
-	drawstring(210.0,5.0,1.0,"Packet is forwarded to the BSC");
-	
-   
-    //move 3
+	 glBegin(GL_QUADS);
+	 	glVertex2i(40,69+j);glVertex2i(40,74+j);glVertex2i(45,74+j);glVertex2i(45,69+j);
+     glEnd();
+     glFlush();
+     glColor3f(0.0,0.0,0.0);
+	 drawstring(210.0,5.0,1.0,"Phone Sends packet on network");
+     glColor3f(1.0,0.0,0.0);
+	 drawstring(210.0,5.0,1.0,"Packet is forwarded to the BSC");
+	 //move 3
     for(i=0;i<57;i=i+temp) //movement of data packet sidewise
 	 {   glColor3f(1,0,0);
 		 glBegin(GL_QUADS);
-	  glVertex2i(77+i,130-3);glVertex2i(77+i,135-3);glVertex2i(72+i,135-3);glVertex2i(72+i,130-3);
-    glEnd();
-    glFlush();
-      glColor3f(0,0,0);   // to remove traces create movement of frame in black
+	 	  glVertex2i(77+i,130-3);glVertex2i(77+i,135-3);glVertex2i(72+i,135-3);glVertex2i(72+i,130-3);
+    	 glEnd();
+    	 glFlush();
+      	 glColor3f(0,0,0);   // to remove traces create movement of frame in black
 		 glBegin(GL_QUADS);
-	  glVertex2i(72+5+i,130-3);glVertex2i(72+5+i,135-3);glVertex2i(72+i,135-3);glVertex2i(72+i,130-3);
-    glEnd();
-    glFlush();
+	      glVertex2i(72+5+i,130-3);glVertex2i(72+5+i,135-3);glVertex2i(72+i,135-3);glVertex2i(72+i,130-3);
+   		 glEnd();
+    	 glFlush();
 	}
 	glColor3f(0.0,1.0,0.0);
 	drawstring(210.0,5.0,1.0,"Packet is forwarded to the BSC");
 	//move 4
+	 glColor3f(0.0,1.0,0.0);
+   	 drawstring(210.0,5.0,1.0,"Packet is forwarded to the BSC");
 	 for(j=0;j<122;j=j+temp) //movement of data packet from top to down
 	 {   glColor3f(1,0,0);
 		 glBegin(GL_QUADS);
-	  glVertex2i(130,140+j);glVertex2i(130,145+j);glVertex2i(135,145+j);glVertex2i(135,140+j);
-    glEnd();
-    glFlush();
-    glColor3f(0,0,0);
+	 		 glVertex2i(130,140+j);glVertex2i(130,145+j);glVertex2i(135,145+j);glVertex2i(135,140+j);
+    	 glEnd();
+    	 glFlush();
+    	 glColor3f(0,0,0);
 		 glBegin(GL_QUADS);
-	  glVertex2i(130,140+j);glVertex2i(130,145+j);glVertex2i(135,145+j);glVertex2i(135,140+j);
-    glEnd();
-    glFlush();
-	}
-    for(j=0;j<5;j=j+temp) //movement of data packet from top to down
+	  		glVertex2i(130,140+j);glVertex2i(130,145+j);glVertex2i(135,145+j);glVertex2i(135,140+j);
+         glEnd();
+    	 glFlush();
+	 }
+     for(j=0;j<5;j=j+temp) //movement of data packet from top to down
 	 {	
 	 	 glColor3f(0,0,0);
 		 glBegin(GL_QUADS);
-	  glVertex2i(130,260+j);glVertex2i(135,265+j);glVertex2i(130,265+j);glVertex2i(135,260+j);
-    glEnd();
-    glFlush();
-    }
+		  glVertex2i(130,260+j);glVertex2i(135,265+j);glVertex2i(130,265+j);glVertex2i(135,260+j);
+    	 glEnd();
+    	 glFlush();
+     }
+     glColor3f(0.0,0.0,0.0);
+	 drawstring(210.0,5.0,1.0,"Packet is forwarded to the BSC");
+	 glColor3f(1.0,0.0,0.0);
+	 drawstring(210.0,5.0,1.0,"The details of the SIM are to be fetched ");
     //move 5
     for(j=0;j<50;j=j+temp) //movement of data packet from top to down
 	 {   glColor3f(1,0,0);
 		 glBegin(GL_QUADS);
-	  glVertex2i(130,354+j);glVertex2i(135,354+j);glVertex2i(135,359+j);glVertex2i(130,359+j);
-    glEnd();
-    glFlush();
+		  glVertex2i(130,354+j);glVertex2i(135,354+j);glVertex2i(135,359+j);glVertex2i(130,359+j);
+    	 glEnd();
+   		 glFlush();
 	 glColor3f(0,0,0);
 		 glBegin(GL_QUADS);
 	  glVertex2i(130,352+j);glVertex2i(135,352+j);glVertex2i(135,357+j);glVertex2i(130,357+j);
@@ -269,7 +269,8 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
 	  glVertex2i(130,402+j);glVertex2i(135,402+j);glVertex2i(130,407+j);glVertex2i(135,407+j);
     glEnd();
     glFlush();
-    }
+    }glColor3f(0.0,1.0,0.0);
+	drawstring(210.0,5.0,1.0,"The details of the SIM are to be fetched ");
     //move 6
     for(i=0;i<97;i=i+temp) //movement of data packet sidewise
 	 {   glColor3f(1,0,0);
@@ -283,6 +284,9 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
     glEnd();
     glFlush();
 	}
+	glColor3f(1.0,0.0,0.0);
+	drawstring(210.0,5.0,1.0,"The details of the SIM are to be fetched ");
+	
 	//move 7
 	for(j=0;j<50;j=j+temp) //movement of data packet from top to down
 	 {   glColor3f(1,0,0);
@@ -296,6 +300,11 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
     glEnd();
     glFlush();
 	}
+	glColor3f(0.0,0.0,0.0);
+	drawstring(210.0,5.0,1.0,"The details of the SIM are to be fetched ");
+	
+	glColor3f(0.0,1.0,0.0);
+	drawstring(210.0,5.0,1.0,"Details not found as this is the first use.Fetch details from the data base (HLR) ");
 	//move 8
 	for(j=0;j<50;j=j+temp) //movement of data packet from top to down
 	 {   glColor3f(1,0,0);
@@ -309,6 +318,9 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
     glEnd();
     glFlush();
 	}
+	glColor3f(1.0,0.0,0.0);
+	drawstring(210.0,5.0,1.0,"Details not found as this is the first use.Fetch details from the data base (HLR) ");
+	
 	//move 9
     for(i=0;i<18;i=i+temp) //movement of data packet sidewise
 	 {   glColor3f(1,0,0);
@@ -322,6 +334,9 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
     glEnd();
     glFlush();
 	}
+	
+	glColor3f(0.0,1.0,0.0);
+	drawstring(210.0,5.0,1.0,"Details FOUND!! Return details to VLR and update location details of the subscriber  ");
 	//move 10
 	for(j=0;j<40;j=j+temp) //movement of data packet from top to down
 	 {   glColor3f(1,0,0);
@@ -335,6 +350,8 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
     glEnd();
     glFlush();
 	}
+	glColor3f(0.0,0.0,0.0);
+	drawstring(210.0,5.0,1.0,"Details FOUND!! Return details to VLR and update location details of the subscriber  ");
 	//move -10
 	for(j=0;j<30;j=j+temp) //movement of data packet from top to down
 	 {   glColor3f(0,1,0);
@@ -511,6 +528,25 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
  				drawstring(265.0,310.0,1.0,"VLR");
  				glColor3f(1.0f,1.0f,1.0f);
  				drawstring(365.0,310.0,1.0,"HLR");int temp=5;
+ 				glBegin(GL_POLYGON);
+      		    glColor3f(1.0,0.0,0.0);
+        			glVertex2f(140,55);
+					glVertex2f(140,75);
+					glVertex2f(148,75);
+					glVertex2f(148,60);
+					glVertex2f(145,55);
+				glEnd();
+				glBegin(GL_POLYGON);
+				glColor3f(1,0.0,0.0);
+				glVertex2f(61,268-20);
+				glVertex2f(59,270-20);
+				glVertex2f(59,272-20);
+				glVertex2f(61,274-20);
+				glVertex2f(63,274-20);
+				glVertex2f(65,272-20);
+				glVertex2f(65,270-20);
+				glVertex2f(63,268-20);
+				glEnd();
  				move1();
  				break;
 	/*glColor3f(1.0f,1.0f,1.0f);
