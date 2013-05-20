@@ -595,7 +595,7 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
                  glVertex2f(292,307);
                  glVertex2f(290,310);
                 glEnd();
-				glBegin(GL_LINELOOP);
+				glBegin(GL_LINE_LOOP);
                  glColor3f(1,0.0,0.0);
                  glVertex2f(290,310);
                  glVertex2f(292,310);
@@ -640,14 +640,14 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
  				//draw poygon on tower
 				glBegin(GL_POLYGON);
 				 glColor3f(1,0.0,0.0);
-				 glVertex2f(405+61,268-27);
-				 glVertex2f(405+59,270-27);
-				 glVertex2f(405+59,272-27);
-				 glVertex2f(405+61,274-27);
-				 glVertex2f(405+63,274-27);
-				 glVertex2f(405+65,272-27);
-				 glVertex2f(405+65,270-27);
-				 glVertex2f(405+63,268-27);
+				 glVertex2f(405+61,268-28);
+				 glVertex2f(405+59,270-28);
+				 glVertex2f(405+59,272-28);
+				 glVertex2f(405+61,274-28);
+				 glVertex2f(405+63,274-28);
+				 glVertex2f(405+65,272-28);
+				 glVertex2f(405+65,270-28);
+				 glVertex2f(405+63,268-28);
 				glEnd();
  				glFlush();
  				break;
@@ -690,7 +690,15 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
 	*/
 	}//end of switch
 }
-
+void delay()
+{  j=20000;
+   while(j!=0)
+   { j--;
+     i=20000;
+     while(i!=0)
+	i--;
+   }
+}
 void title()												// to draw the starting screen
 {	glClear(GL_COLOR_BUFFER_BIT);
 	setFont(GLUT_BITMAP_HELVETICA_18);
@@ -747,12 +755,16 @@ void myMouse(int btn, int state, int x, int y)
 		x=x/2;
 		y=(1000-y)/2.1;
 		if ((x>=180 && x<=305) && (y>=395 && y<=425 ))// 1 menu
-		{
-			;
+		{	glClear(GL_COLOR_BUFFER_BIT);
+     		glColor3f(1.0,1.0,1.0);
+			mobile_stn(1);
+			draw_key_int();
 		}
 		if((x>=180 && x<=305) && (y>=354 && y<=375 ))//   2 menu
-		{
-			;
+		{	glClear(GL_COLOR_BUFFER_BIT);
+			glColor3f(1.0,1.0,1.0);
+			mobile_stn(2);
+			draw_key_int();
 		}
 		if((x>=180 && x<=305) && (y>=311 && y<=333 ))  // 3 menu
 		{
@@ -767,7 +779,7 @@ void myMouse(int btn, int state, int x, int y)
 				;
 		}
 
-		if((x>=180 && x<=305) && (y>=183 && y<=206 ))  // 6 menu
+		if((x>=180 && x<=305) && (y>=183+24 && y<=206+24 ))  // 6 menu
 		{
 				exit(0);
 		}
@@ -775,11 +787,11 @@ void myMouse(int btn, int state, int x, int y)
 }
 void display(void)
 { 	glClear(GL_COLOR_BUFFER_BIT);
-	//title();
-	//delay();//delay();delay();
-	//draw();
-	//text();glClearColor(0.0,0.0,0.0,0.0);
-    mobile_stn(2);
+	title();
+	delay();
+	glClear(GL_COLOR_BUFFER_BIT);
+	draw();
+	text();
 }
 int main(int argc,char **argv)
 {
