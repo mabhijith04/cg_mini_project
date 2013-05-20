@@ -336,8 +336,6 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
 	}
 	glColor3f(0.0,0.0,0.0);
 	drawstring(210.0,5.0,1.0,"Details not found as this is the first use.Fetch details from the data base (HLR) ");
-	glColor3f(0.0,1.0,0.0);
-	drawstring(210.0,5.0,1.0,"Details FOUND!! Return details to VLR and update location details of the subscriber  ");
 	//move 10
 	for(j=0;j<40;j=j+temp) //movement of data packet from top to down
 	 {   glColor3f(1,0,0);
@@ -351,7 +349,7 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
     glEnd();
     glFlush();
 	}
-	glColor3f(0.0,0.0,0.0);
+	glColor3f(1.0,0.0,0.0);
 	drawstring(210.0,5.0,1.0,"Details FOUND!! Return details to VLR and update location details of the subscriber  ");
 	//move -10
 	for(j=0;j<30;j=j+temp) //movement of data packet from top to down
@@ -489,7 +487,7 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
 	}
 }
 void mobile_stn(int choice)		// to draw the sender and receiver MS
-{ int j;
+{ int j;int temp=5;
 	switch(choice)
 	{ case 1: 	glColor3f(1.0f,1.0f,1.0f);
 				setFont(GLUT_BITMAP_HELVETICA_12);
@@ -528,7 +526,7 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
  				glColor3f(1.0f,1.0f,1.0f);
  				drawstring(265.0,310.0,1.0,"VLR");
  				glColor3f(1.0f,1.0f,1.0f);
- 				drawstring(365.0,310.0,1.0,"HLR");int temp=5;
+ 				drawstring(365.0,310.0,1.0,"HLR");
  				//draw SIM
  				glBegin(GL_POLYGON);
       		    glColor3f(1.0,0.0,0.0);
@@ -551,6 +549,88 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
 				glVertex2f(63,268-20);
 				glEnd();
  				move1();
+ 				break;
+ 	case 2:     glClear(GL_COLOR_BUFFER_BIT);
+ 				glColor3f(1.0f,1.0f,1.0f);
+				setFont(GLUT_BITMAP_HELVETICA_12);
+ 				drawstring(95.0,20.0,1.0,"SENDER");
+ 				glColor3f(1.0f,1.0f,1.0f);
+ 				drawstring(70.0,100.0,1.0,"BTS");
+				/*Sender MS code*/
+				glBegin(GL_QUADS);
+         		glColor3f(0.2,.2,0.2);
+	 			glVertex2f(75.0+20,30.0);
+	 			glVertex2f(100.0+20,30.0);
+	 			glVertex2f(100.0+20,90.0);
+	 			glVertex2f(75.0+20,90.0);
+				glEnd();
+				glBegin(GL_QUADS);
+         		glColor3f(.5,0.1,.4);
+         		glVertex2f(120,90);
+	 			glVertex2f(120,110);
+	 			glVertex2f(115,110);
+	 			glVertex2f(115,90);
+				glEnd();
+				glBegin(GL_QUADS);
+         		glColor3f(0,0,1);
+         		glVertex2f(100-3,80+4);
+	 			glVertex2f(100-3,60);
+	 			glVertex2f(115+3,60);
+ 	 			glVertex2f(115+3,80+4);
+				glEnd();
+				//end of sender MS code
+				draw_bts(45,130);
+				draw_bsc(130,270);
+				draw_bsc(230,270);
+				draw_bsc(330,270);
+				glColor3f(1.0f,1.0f,1.0f);
+ 				drawstring(345.0,20.0,1.0,"RECEIVER");
+				glColor3f(1.0f,1.0f,1.0f);
+ 				drawstring(400.0,100.0,1.0,"BTS");
+				/*Reciever MS code*/
+				glBegin(GL_QUADS);
+     			 glColor3f(0.2,.2,0.2);
+		   	     glVertex2f(250+75.0+20,30.0);
+			     glVertex2f(250+100.0+20,30.0);
+	 		     glVertex2f(250+100.0+20,90.0);
+	 			 glVertex2f(250+75.0+20,90.0);
+				glEnd();
+				glBegin(GL_QUADS);
+    		    glColor3f(.5,0.1,.4);
+       	  	     glVertex2f(250+120,90);
+	 			 glVertex2f(250+120,110);
+	 			 glVertex2f(250+115,110);
+				 glVertex2f(250+115,90);
+			 	glEnd();
+				glBegin(GL_QUADS);
+         		glColor3f(0,0,1);
+		         glVertex2f(250+100-3,80+4);
+	  			 glVertex2f(250+100-3,60);
+	 			 glVertex2f(250+115+3,60);
+ 	 			 glVertex2f(250+115+3,80+4);
+				glEnd();
+				//reciever BTS code
+        		draw_bts(390,120);
+				glColor3f(1.0f,1.0f,1.0f);
+ 				drawstring(165.0,310.0,1.0,"BSC");
+ 				glColor3f(1.0f,1.0f,1.0f);
+ 				drawstring(265.0,310.0,1.0,"VLR");
+ 				glColor3f(1.0f,1.0f,1.0f);
+ 				drawstring(365.0,310.0,1.0,"HLR");temp=5;
+ 				
+				//draw poygon on tower
+				glBegin(GL_POLYGON);
+				glColor3f(1,0.0,0.0);
+				glVertex2f(61,268-20);
+				glVertex2f(59,270-20);
+				glVertex2f(59,272-20);
+				glVertex2f(61,274-20);
+				glVertex2f(63,274-20);
+				glVertex2f(65,272-20);
+				glVertex2f(65,270-20);
+				glVertex2f(63,268-20);
+				glEnd();
+ 				glFlush();
  				break;
 	/*glColor3f(1.0f,1.0f,1.0f);
  	drawstring(345.0,20.0,1.0,"RECEIVER");
@@ -692,7 +772,7 @@ void display(void)
 	//delay();//delay();delay();
 	//draw();
 	//text();glClearColor(0.0,0.0,0.0,0.0);
-        mobile_stn(1);
+        mobile_stn(2);
 }
 int main(int argc,char **argv)
 {
