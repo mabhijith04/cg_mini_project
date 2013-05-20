@@ -543,7 +543,7 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
 				setFont(GLUT_BITMAP_HELVETICA_12);
  				drawstring(95.0,20.0,1.0,"SENDER");
  				glColor3f(1.0f,1.0f,1.0f);
- 				drawstring(70.0,100.0,1.0,"BTS");
+ 				drawstring(56.0,115.0,1.0,"BTS");
 				/*Sender MS code*/
 				glBegin(GL_QUADS);
          		 glColor3f(0.2,.2,0.2);
@@ -568,13 +568,45 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
 				glEnd();
 				//end of sender MS code
 				draw_bts(45,130);
+				//draw poygon on tower
+				glBegin(GL_POLYGON);
+				 glColor3f(1,0.0,0.0);
+				 glVertex2f(61,268-20);
+				 glVertex2f(59,270-20);
+				 glVertex2f(59,272-20);
+				 glVertex2f(61,274-20);
+				 glVertex2f(63,274-20);
+				 glVertex2f(65,272-20);
+				 glVertex2f(65,270-20);
+				 glVertex2f(63,268-20);
+				glEnd();
 				draw_bsc(130,270);
 				draw_bsc(230,270);
 				draw_bsc(330,270);
+				//draw vlr
+				glBegin(GL_POLYGON);
+                 glColor3f(1,0.0,0.0);
+                 glVertex2f(290,280);
+                 glVertex2f(292,278);
+                 glVertex2f(298,278);
+                 glVertex2f(300,280);
+                 glVertex2f(300,310);
+                 glVertex2f(298,307);
+                 glVertex2f(292,307);
+                 glVertex2f(290,310);
+                glEnd();
+				glBegin(GL_LINELOOP);
+                 glColor3f(1,0.0,0.0);
+                 glVertex2f(290,310);
+                 glVertex2f(292,310);
+                 glVertex2f(298,313); 
+                 glVertex2f(300,310);
+				glEnd();
+				//end draw vlr
 				glColor3f(1.0f,1.0f,1.0f);
  				drawstring(345.0,20.0,1.0,"RECEIVER");
 				glColor3f(1.0f,1.0f,1.0f);
- 				drawstring(400.0,100.0,1.0,"BTS");
+ 				drawstring(462.0,100.0,1.0,"BTS");
 				/*Reciever MS code*/
 				glBegin(GL_QUADS);
      			 glColor3f(0.2,.2,0.2);
@@ -598,7 +630,7 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
  	 			 glVertex2f(250+115+3,80+4);
 				glEnd();
 				//reciever BTS code
-        		draw_bts(390,120);
+        		draw_bts(450,120);
 				glColor3f(1.0f,1.0f,1.0f);
  				drawstring(165.0,310.0,1.0,"BSC");
  				glColor3f(1.0f,1.0f,1.0f);
@@ -608,14 +640,14 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
  				//draw poygon on tower
 				glBegin(GL_POLYGON);
 				 glColor3f(1,0.0,0.0);
-				 glVertex2f(61,268-20);
-				 glVertex2f(59,270-20);
-				 glVertex2f(59,272-20);
-				 glVertex2f(61,274-20);
-				 glVertex2f(63,274-20);
-				 glVertex2f(65,272-20);
-				 glVertex2f(65,270-20);
-				 glVertex2f(63,268-20);
+				 glVertex2f(405+61,268-27);
+				 glVertex2f(405+59,270-27);
+				 glVertex2f(405+59,272-27);
+				 glVertex2f(405+61,274-27);
+				 glVertex2f(405+63,274-27);
+				 glVertex2f(405+65,272-27);
+				 glVertex2f(405+65,270-27);
+				 glVertex2f(405+63,268-27);
 				glEnd();
  				glFlush();
  				break;
