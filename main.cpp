@@ -431,12 +431,12 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
    for(j=0;j<50;j=j+temp) //movement of data packet from top to down
 	 {   glColor3f(0,1,0);
 		 glBegin(GL_QUADS);
-	  glVertex2i(45,130-j);glVertex2i(50,130-j);glVertex2i(45,125-j);glVertex2i(50,125-j);
+	  glVertex2i(45,130-j);glVertex2i(50,130-j);glVertex2i(50,125-j);glVertex2i(45,125-j);
     glEnd();
     glFlush();
    glColor3f(0,0,0);
 	 glBegin(GL_QUADS);
-	  glVertex2i(45,130-j);glVertex2i(50,130-j);glVertex2i(45,125-j);glVertex2i(50,125-j);
+	   glVertex2i(45,130-j);glVertex2i(50,130-j);glVertex2i(50,125-j);glVertex2i(45,125-j);
     glEnd();
     glFlush();
 	 }
@@ -444,13 +444,13 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
     for(i=0;i<40;i=i+temp) //movement of data packet sidewise
 	 {   glColor3f(0,1,0);
 		 glBegin(GL_QUADS);
-	  glVertex2i(45+i,80);glVertex2i(50+i,80);glVertex2i(45+i,75);glVertex2i(45+i,75);
+	  glVertex2i(45+i,80);glVertex2i(45+i,75);glVertex2i(50+i,75);glVertex2i(50+i,80);
     glEnd();
     glFlush();
 	
       glColor3f(0,0,0);   // to remove traces create movement of frame in black
 		 glBegin(GL_QUADS);
-	   glVertex2i(45+i,80);glVertex2i(50+i,80);glVertex2i(45+i,75);glVertex2i(45+i,75);
+	    glVertex2i(45+i,80);glVertex2i(45+i,75);glVertex2i(50+i,75);glVertex2i(50+i,80);
     glEnd();
     glFlush();
 	}
