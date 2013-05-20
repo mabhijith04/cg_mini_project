@@ -150,10 +150,13 @@ void draw_bts(GLint x,GLint y)
    *///*/
   glEnd();
 }  
-void draw_bsc(GLint x,GLint y)
+void draw_bsc(GLint x,GLint y,int f)
 { 	glBegin(GL_QUADS);
+		if(f)
  		glColor3d(0,0,1);
-		glVertex2f(x,y);
+ 		else
+ 		glColor3d(0,1,0);
+ 		glVertex2f(x,y);
 		glVertex2f(x+80,y);
  		glVertex2f(x+80.0,y+80.0);
 		glVertex2f(x,y+80);
@@ -239,7 +242,10 @@ void move1()  //MOVEMENT OF FRAME
     	 glEnd();
     	 glFlush();
      }
-     glColor3f(0.0,0.0,0.0);
+     draw_bsc(130,270,0);
+     glColor3f(1.0f,1.0f,1.0f);
+ 	 drawstring(165.0,310.0,1.0,"BSC");
+	 glColor3f(0.0,0.0,0.0);
 	 drawstring(210.0,5.0,1.0,"Packet is forwarded to the BSC");
 	 glColor3f(1.0,0.0,0.0);
 	 drawstring(210.0,5.0,1.0,"The details of the SIM are to be fetched ");
@@ -294,7 +300,33 @@ void move1()  //MOVEMENT OF FRAME
     	 glEnd();
    		 glFlush();
 	}
-	glColor3f(0.0,0.0,0.0);
+	draw_bsc(230,270,0);
+	//redraw//VLR inside
+				glBegin(GL_POLYGON);
+				 glColor3f(1,0.0,0.0);
+				 glVertex2f(290,280);
+				 glVertex2f(292,278);
+				 glVertex2f(298,278);
+				 glVertex2f(300,280);
+				 glVertex2f(300,300);
+				 glVertex2f(298,297);
+				 glVertex2f(292,297);
+				 glVertex2f(290,300);
+				glEnd();
+				glBegin(GL_LINE_LOOP); 
+				 glColor3f(1.0,0.0,0.0);
+				 glVertex2f(290,300);
+				 glVertex2f(292,303);
+				 glVertex2f(298,303);
+				 glVertex2f(300,300);
+				 glVertex2f(298,297);
+				 glVertex2f(292,297);
+				 glVertex2f(290,300);
+				glEnd();
+	//end redraw
+ 	glColor3f(1.0f,1.0f,1.0f);
+ 	drawstring(265.0,310.0,1.0,"MSC/VLR");
+ 	glColor3f(0.0,0.0,0.0);
 	drawstring(210.0,5.0,1.0,"The details of the SIM are to be fetched ");
 	glColor3f(0.0,1.0,0.0);
 	drawstring(210.0,5.0,1.0,"Details not found as this is the first use.Fetch details from the data base (HLR) ");
@@ -341,7 +373,10 @@ void move1()  //MOVEMENT OF FRAME
    		 glEnd();
    		 glFlush();
 	}
-	glColor3f(1.0,0.0,0.0);
+	draw_bsc(330,270,0);
+	glColor3f(1.0f,1.0f,1.0f);
+	drawstring(365.0,310.0,1.0,"HLR");
+ 	glColor3f(1.0,0.0,0.0);
 	drawstring(210.0,5.0,1.0,"Details FOUND!! Return details to VLR and update location details of the subscriber  ");
 	//move -10
 	for(j=0;j<30;j=j+temp) //movement of data packet from top to down
@@ -506,13 +541,53 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
 				glEnd();
 				//end of sender MS code
 				draw_bts(45,130);
-				draw_bsc(130,270);
-				draw_bsc(230,270);
-				draw_bsc(330,270);
+				draw_bsc(130,270,1);
+				draw_bsc(230,270,1);
+				draw_bsc(330,270,1);
+				//draw vlr
+				//VLR inside
+				glBegin(GL_POLYGON);
+				 glColor3f(1,1.0,0.0);
+				 glVertex2f(290,280);
+				 glVertex2f(292,278);
+				 glVertex2f(298,278);
+				 glVertex2f(300,280);
+				 glVertex2f(300,300);
+				 glVertex2f(298,297);
+				 glVertex2f(292,297);
+				 glVertex2f(290,300);
+				glEnd();
+				glBegin(GL_LINE_LOOP); 
+				 glColor3f(1.0,1.0,0.0);
+				 glVertex2f(290,300);
+				 glVertex2f(292,303);
+				 glVertex2f(298,303);
+				 glVertex2f(300,300);
+				 glVertex2f(298,297);
+				 glVertex2f(292,297);
+				 glVertex2f(290,300);
+				glEnd(); 
+			    // channel linking MSC and HLR
+				glBegin(GL_POLYGON);
+				 glColor3f(1,0.0,0.0);
+				 glVertex2f(310,335);
+				 glVertex2f(310,340);
+				 glVertex2f(330,340);
+				 glVertex2f(330,335);
+				glEnd();
+				// Authentication channel linking
+				glBegin(GL_POLYGON);
+				 glColor3f(1,0.0,0.0);
+				 glVertex2f(310+100,335);
+				 glVertex2f(310+100,340);
+				 glVertex2f(330+100,340);
+				 glVertex2f(330+100,335);
+				glEnd();				 
+				//end draw vlr
 				glColor3f(1.0f,1.0f,1.0f);
  				drawstring(165.0,310.0,1.0,"BSC");
  				glColor3f(1.0f,1.0f,1.0f);
- 				drawstring(265.0,310.0,1.0,"VLR");
+ 				drawstring(265.0,310.0,1.0,"MSC/VLR");
  				glColor3f(1.0f,1.0f,1.0f);
  				drawstring(365.0,310.0,1.0,"HLR");
  				//draw SIM
@@ -580,28 +655,48 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
 				 glVertex2f(65,270-20);
 				 glVertex2f(63,268-20);
 				glEnd();
-				draw_bsc(130,270);
-				draw_bsc(230,270);
-				draw_bsc(330,270);
+				draw_bsc(130,270,1);
+				draw_bsc(230,270,1);
+				draw_bsc(330,270,1);
 				//draw vlr
+				//VLR inside
 				glBegin(GL_POLYGON);
-                 glColor3f(1,0.0,0.0);
-                 glVertex2f(290,280);
-                 glVertex2f(292,278);
-                 glVertex2f(298,278);
-                 glVertex2f(300,280);
-                 glVertex2f(300,310);
-                 glVertex2f(298,307);
-                 glVertex2f(292,307);
-                 glVertex2f(290,310);
-                glEnd();
-				glBegin(GL_LINE_LOOP);
-                 glColor3f(1,0.0,0.0);
-                 glVertex2f(290,310);
-                 glVertex2f(292,310);
-                 glVertex2f(298,313); 
-                 glVertex2f(300,310);
+				 glColor3f(1,1.0,0.0);
+				 glVertex2f(290,280);
+				 glVertex2f(292,278);
+				 glVertex2f(298,278);
+				 glVertex2f(300,280);
+				 glVertex2f(300,300);
+				 glVertex2f(298,297);
+				 glVertex2f(292,297);
+				 glVertex2f(290,300);
 				glEnd();
+				glBegin(GL_LINE_LOOP); 
+				 glColor3f(1.0,1.0,0.0);
+				 glVertex2f(290,300);
+				 glVertex2f(292,303);
+				 glVertex2f(298,303);
+				 glVertex2f(300,300);
+				 glVertex2f(298,297);
+				 glVertex2f(292,297);
+				 glVertex2f(290,300);
+				glEnd(); 
+			    // channel linking MSC and HLR
+				glBegin(GL_POLYGON);
+				 glColor3f(1,0.0,0.0);
+				 glVertex2f(310,335);
+				 glVertex2f(310,340);
+				 glVertex2f(330,340);
+				 glVertex2f(330,335);
+				glEnd();
+				// Authentication channel linking
+				glBegin(GL_POLYGON);
+				 glColor3f(1,0.0,0.0);
+				 glVertex2f(310+100,335);
+				 glVertex2f(310+100,340);
+				 glVertex2f(330+100,340);
+				 glVertex2f(330+100,335);
+				glEnd();				 
 				//end draw vlr
 				glColor3f(1.0f,1.0f,1.0f);
  				drawstring(345.0,20.0,1.0,"RECEIVER");
@@ -634,7 +729,7 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
 				glColor3f(1.0f,1.0f,1.0f);
  				drawstring(165.0,310.0,1.0,"BSC");
  				glColor3f(1.0f,1.0f,1.0f);
- 				drawstring(265.0,310.0,1.0,"VLR");
+ 				drawstring(265.0,310.0,1.0,"MSC/VLR");
  				glColor3f(1.0f,1.0f,1.0f);
  				drawstring(365.0,310.0,1.0,"HLR");temp=5;
  				//draw poygon on tower
