@@ -169,6 +169,10 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
 {
 	float i,j,temp=0.1;
     //move 1
+    
+     glColor3f(1.0,0.0,0.0);
+	drawstring(210.0,5.0,1.0,"Phone Sends packet on network");
+    
     for(i=0;i<51;i=i+temp) //movement of data packet sidewise
 	 {   glColor3f(1,0,0);
 		 glBegin(GL_QUADS);
@@ -182,7 +186,10 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
     glEnd();
     glFlush();
 	}
+	glColor3f(0.0,1.0,0.0);
+	drawstring(210.0,5.0,1.0,"Phone Sends packet on network");
 	//move 2
+	
    for(j=0;j<62;j=j+temp) //movement of data packet from top to down
 	 {   glColor3f(1,0,0);
 		 glBegin(GL_QUADS);
@@ -200,6 +207,12 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
 	  glVertex2i(40,69+j);glVertex2i(40,74+j);glVertex2i(45,74+j);glVertex2i(45,69+j);
     glEnd();
     glFlush();
+    glColor3f(0.0,0.0,0.0);
+	drawstring(210.0,5.0,1.0,"Phone Sends packet on network");
+    glColor3f(1.0,0.0,0.0);
+	drawstring(210.0,5.0,1.0,"Packet is forwarded to the BSC");
+	
+   
     //move 3
     for(i=0;i<57;i=i+temp) //movement of data packet sidewise
 	 {   glColor3f(1,0,0);
@@ -213,6 +226,8 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
     glEnd();
     glFlush();
 	}
+	glColor3f(0.0,1.0,0.0);
+	drawstring(210.0,5.0,1.0,"Packet is forwarded to the BSC");
 	//move 4
 	 for(j=0;j<122;j=j+temp) //movement of data packet from top to down
 	 {   glColor3f(1,0,0);
