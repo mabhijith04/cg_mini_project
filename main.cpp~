@@ -222,7 +222,7 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
     glFlush();
     glColor3f(0,0,0);
 		 glBegin(GL_QUADS);
-	  glVertex2i(130,140+j);glVertex2i(130,145+j);glVertex2i(135,145+j);glVertex2i(135,140+j);
+	  glVertex2i(130,136+j);glVertex2i(130,141+j);glVertex2i(135,141+j);glVertex2i(135,136+j);
     glEnd();
     glFlush();
 	}
