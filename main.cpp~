@@ -450,7 +450,7 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
 	
       glColor3f(0,0,0);   // to remove traces create movement of frame in black
 		 glBegin(GL_QUADS);
-	   glVertex2i(45+i,80);glVertex2i(50+i,80);glVertex2i(45+i,75);glVertex2i(45+i,75);
+	    glVertex2i(45+i,80);glVertex2i(45+i,75);glVertex2i(50+i,75);glVertex2i(50+i,80);
     glEnd();
     glFlush();
 	}
