@@ -334,9 +334,8 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
     glEnd();
     glFlush();
 	}
-	
-	glColor3f(0.0,1.0,0.0);
-	drawstring(210.0,5.0,1.0,"Details FOUND!! Return details to VLR and update location details of the subscriber  ");
+	glColor3f(0.0,0.0,0.0);
+	drawstring(210.0,5.0,1.0,"Details not found as this is the first use.Fetch details from the data base (HLR) ");
 	//move 10
 	for(j=0;j<40;j=j+temp) //movement of data packet from top to down
 	 {   glColor3f(1,0,0);
@@ -350,7 +349,7 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
     glEnd();
     glFlush();
 	}
-	glColor3f(0.0,0.0,0.0);
+	glColor3f(1.0,0.0,0.0);
 	drawstring(210.0,5.0,1.0,"Details FOUND!! Return details to VLR and update location details of the subscriber  ");
 	//move -10
 	for(j=0;j<30;j=j+temp) //movement of data packet from top to down
@@ -528,6 +527,7 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
  				drawstring(265.0,310.0,1.0,"VLR");
  				glColor3f(1.0f,1.0f,1.0f);
  				drawstring(365.0,310.0,1.0,"HLR");int temp=5;
+ 				//draw SIM
  				glBegin(GL_POLYGON);
       		    glColor3f(1.0,0.0,0.0);
         			glVertex2f(140,55);
@@ -536,6 +536,7 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
 					glVertex2f(148,60);
 					glVertex2f(145,55);
 				glEnd();
+				//draw poygon on tower
 				glBegin(GL_POLYGON);
 				glColor3f(1,0.0,0.0);
 				glVertex2f(61,268-20);

@@ -334,7 +334,8 @@ void move1()  //MOVEMENT OF FRAME 0  (in safe sending)
     glEnd();
     glFlush();
 	}
-	
+	glColor3f(0.0,0.0,0.0);
+	drawstring(210.0,5.0,1.0,"Details not found as this is the first use.Fetch details from the data base (HLR) ");
 	glColor3f(0.0,1.0,0.0);
 	drawstring(210.0,5.0,1.0,"Details FOUND!! Return details to VLR and update location details of the subscriber  ");
 	//move 10
@@ -528,6 +529,7 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
  				drawstring(265.0,310.0,1.0,"VLR");
  				glColor3f(1.0f,1.0f,1.0f);
  				drawstring(365.0,310.0,1.0,"HLR");int temp=5;
+ 				//draw SIM
  				glBegin(GL_POLYGON);
       		    glColor3f(1.0,0.0,0.0);
         			glVertex2f(140,55);
@@ -536,13 +538,17 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
 					glVertex2f(148,60);
 					glVertex2f(145,55);
 				glEnd();
+				//draw poygon on tower
 				glBegin(GL_POLYGON);
 				glColor3f(1,0.0,0.0);
-				glVertex2f(61,268);
-				glVertex2f(59,270);
-				glVertex2f(59,272);
-				glVertex2f(61,274);
-				glVertex2f(63,274); glVertex2f(65,272); glVertex2f(65,270); glVertex2f(63,268);
+				glVertex2f(61,268-20);
+				glVertex2f(59,270-20);
+				glVertex2f(59,272-20);
+				glVertex2f(61,274-20);
+				glVertex2f(63,274-20);
+				glVertex2f(65,272-20);
+				glVertex2f(65,270-20);
+				glVertex2f(63,268-20);
 				glEnd();
  				move1();
  				break;
