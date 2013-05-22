@@ -408,7 +408,7 @@ void move2()  //MOVEMENT OF FRAME
 	}
 	//move 14
 	for(j=0;j<53;j=j+temp) //movement of data packet from top to down
-	 {   glColor3f(0,1,0);
+	 {   glColor3f(1,0,0);
 		 glBegin(GL_QUADS);
 	  	  glVertex2i(335+20,80+70-j);glVertex2i(335+20,75+70-j);glVertex2i(340+20,75+70-j);glVertex2i(340+20,80+70-j);
     	 glEnd();
@@ -419,7 +419,7 @@ void move2()  //MOVEMENT OF FRAME
     	 glEnd();
    		 glFlush();
 	}
-	//move -10
+	/*//move -10
 	for(j=0;j<30;j=j+temp) //movement of data packet from top to down
 	 {   glColor3f(0,1,0);
 		 glBegin(GL_QUADS);
@@ -581,7 +581,7 @@ void move2()  //MOVEMENT OF FRAME
  	 			 glVertex2f(115+3,80+4);
 				glEnd();
 	glFlush();
-	scanf("%d",&temp);
+	
 }
 void move1()  //MOVEMENT OF FRAME
 {	float i,j,temp=0.1/2.5;
@@ -989,9 +989,9 @@ void move1()  //MOVEMENT OF FRAME
 	 			 glVertex2f(100-3,60);
 	 			 glVertex2f(115+3,60);
  	 			 glVertex2f(115+3,80+4);
-				glEnd();
+				glEnd();*/
 	glFlush();
-	scanf("%d",&temp);
+	
 }
 void help()
 {
@@ -1306,11 +1306,11 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
 				 glVertex2f(290,235);
 				glEnd();
 				glBegin(GL_POLYGON);
-				 glColor3f(1,0.1,0.0);
-				 glVertex2f(290,230);
-				 glVertex2f(285,230);
-				 glVertex2f(285,235);
+				 glColor3f(1,0,0.0);
 				 glVertex2f(290,235);
+				 glVertex2f(285,235);
+				 glVertex2f(285,220);
+				 glVertex2f(290,220);
 				glEnd();
 				//VLR inside
 				glBegin(GL_POLYGON);
@@ -1541,6 +1541,30 @@ void myMouse(int btn, int state, int x, int y)
      		glColor3f(1.0,1.0,1.0);
 			mobile_stn(1);
 			draw_key_int();
+			glBegin(GL_QUADS);
+         		 glColor3f(0.2,.2,0.2);
+	 			 glVertex2f(75.0+20,30.0);
+	 			 glVertex2f(100.0+20,30.0);
+	 			 glVertex2f(100.0+20,90.0);
+	 			 glVertex2f(75.0+20,90.0);
+				glEnd();
+				glBegin(GL_QUADS);
+         		 glColor3f(.5,0.1,.4);
+         		 glVertex2f(120,90);
+	 			 glVertex2f(120,110);
+	 			 glVertex2f(115,110);
+	 			 glVertex2f(115,90);
+				glEnd();
+				glBegin(GL_QUADS);
+         		 glColor3f(0,01,0);
+         		 glVertex2f(100-3,80+4);
+	 			 glVertex2f(100-3,60);
+	 			 glVertex2f(115+3,60);
+ 	 			 glVertex2f(115+3,80+4);
+				glEnd();
+				
+				
+			glFlush();
 		}
 		if((x>=180 && x<=305) && (y>=354 && y<=375 ))//   2 menu
 		{	glClear(GL_COLOR_BUFFER_BIT);
@@ -1568,10 +1592,7 @@ void myMouse(int btn, int state, int x, int y)
 		{
 			exit(0);
 		}
-		if((x>=180 && x<=305) && (y>=226 && y<=249 ))  // 5 menu
-		{
-				;
-		}
+		
 
 
 	}
