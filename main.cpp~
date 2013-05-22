@@ -6,6 +6,7 @@ GLfloat x[25];
 GLfloat y[20];
 GLint i,j,k;
 int w,h;
+int helpf=0;
 void setFont(void *font)
 { currentfont=font;
 }
@@ -23,17 +24,13 @@ void text(void)											// to draw the text in menu screen
 	glColor3f(1.0,1.0,1.0);
 	drawstring(95.0,455.0,1.0,"*  *  *  *  *  *  *  *  *  GSM CALL SETUP PROCEDURE  *  *  *  *  *  *  *  *  *");
 	glColor3f(1.0,1.0,1.0);
-	drawstring(210.0,405.0,1.0,"First Use");				
+	drawstring(210.0,405.0,1.0,"    First Use");				
 	glColor3f(1.0,1.0,1.0);
-	drawstring(200.0,350.0,1.0," Initiate Local Call");
+	drawstring(200.0,350.0,1.0,"   Initiate Local Call");
 	glColor3f(1.0,1.0,1.0);
-	drawstring(210.0,295.0,1.0,"Initaite STD call");
+	drawstring(210.0,295.0,1.0,"        Help");
 	glColor3f(1.0,1.0,1.0);
-	drawstring(200.0,240.0,1.0,"Some String");
-	glColor3f(1.0,1.0,1.0);
-	drawstring(215.0,185.0,1.0,"Some String");
-	glColor3f(1.0,1.0,1.0);
-	drawstring(225.0,130.0,1.0,"  EXIT");
+	drawstring(200.0,240.0,1.0,"            EXIT");
 	glFlush();
 }
 void draw() // TO DRAW POLYGON FOR DISPLAY MENUS 
@@ -71,7 +68,7 @@ void draw() // TO DRAW POLYGON FOR DISPLAY MENUS
     glVertex2i(305,230);
 	glEnd();
 	glFlush();
-	glBegin(GL_POLYGON);  // Func 2
+	/*glBegin(GL_POLYGON);  // Func 2
 	glColor3f(0.7f,0.2f,0.2f);
     glVertex2i(305,205);
 	glVertex2i(180,205);
@@ -85,7 +82,7 @@ void draw() // TO DRAW POLYGON FOR DISPLAY MENUS
 	glVertex2i(180,150);
 	glVertex2i(180,120);
     glVertex2i(305,120);
-	glEnd();
+	glEnd();*/
 	glFlush();
 }
 void myInit()
@@ -96,6 +93,22 @@ void myInit()
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	setFont(GLUT_BITMAP_HELVETICA_18);
+}
+void draw_key_int(void)				// text for keyboard interaction
+{	glColor3f(0.0,0.0,0.0);
+	glBegin(GL_POLYGON);
+	glVertex2f(0,0);
+	glVertex2f(0,135);
+	glVertex2f(500,135);
+	glVertex2f(500,0);
+	glEnd();
+	glFlush();
+	glColor3f(1.0f,1.0f,1.0f);
+	setFont(GLUT_BITMAP_HELVETICA_18);
+	drawstring(360.0,130.0,1.0,"DO U WISH TO CONTINUE?");
+	glColor3f(1.0f,1.0f,1.0f);
+	drawstring(360.0,110.0,1.0,"PRESS  Y/N");
+	glFlush();
 }
 void draw_bts(GLint x,GLint y)
 { glBegin(GL_LINES);
@@ -389,8 +402,21 @@ void move2()  //MOVEMENT OF FRAME
     	 glFlush();
          glColor3f(0,0,0);   // to remove traces create movement of frame in black
 		 glBegin(GL_QUADS);
-		    glVertex2i(350+45-i,80+70);glVertex2i(350+45-i,75+70);glVertex2i(350+50-i,75+70);glVertex2i(350+50-i,80+70);
+		    glVertex2i(350+45+50-i,80+70);glVertex2i(350+50+45-i,75+70);glVertex2i(350+50+50-i,75+70);glVertex2i(350+50+50-i,80+70);
   		 glEnd();
+   		 glFlush();
+	}
+	//move 14
+	for(j=0;j<53;j=j+temp) //movement of data packet from top to down
+	 {   glColor3f(0,1,0);
+		 glBegin(GL_QUADS);
+	  	  glVertex2i(335+20,80+70-j);glVertex2i(335+20,75+70-j);glVertex2i(340+20,75+70-j);glVertex2i(340+20,80+70-j);
+    	 glEnd();
+   		 glFlush();
+		 glColor3f(0,0,0);
+		 glBegin(GL_QUADS);
+	 	   glVertex2i(335+20,80+70-j);glVertex2i(335+20,75+70-j);glVertex2i(340+20,75+70-j);glVertex2i(340+20,80+70-j);
+    	 glEnd();
    		 glFlush();
 	}
 	//move -10
@@ -967,7 +993,47 @@ void move1()  //MOVEMENT OF FRAME
 	glFlush();
 	scanf("%d",&temp);
 }
+void help()
+{
+glColor3f(1.0f,1.0f,1.0f);
+drawstring(20.0,455.0,1.0,"HELP- Various Terminologies used in the project are explained below ");
+glColor3f(1.0f,0.0f,0.0f);
+drawstring(20.0,420.0,1.0,"BTS : Base Transeiver Station ");
+glColor3f(0.0f,1.0f,0.0f);
+drawstring(20.0,405.0,1.0,"A base transceiver station (BTS) is a piece of equipment that facilitates wireless communication between user ");
+glColor3f(0.0f,1.0f,0.0f);
+drawstring(20.0,390.0,1.0,"equipment (UE) and a network. UEs are devices like mobile phones (handsets), WLL phones, computers with wireless internet ");
+glColor3f(0.0f,1.0f,0.0f);
+drawstring(20.0,375.0,1.0,"connectivity, WiFi and WiMAX devices and others. The network can be that of any of the wireless communication technologies ");
+glColor3f(1.0f,0.0f,0.0f);
+drawstring(20.0,350.0,1.0,"BSC : Base Transeiver Station ");
+glColor3f(0.0f,1.0f,0.0f);
+drawstring(20.0,335.0,1.0,"like GSM, CDMA, Wireless local loop, WAN, WiFi, WiMAX, etc.The base station controller (BSC) provides, classically, the intelligence ");
+glColor3f(0.0f,1.0f,0.0f);
+drawstring(20.0,320.0,1.0,"behind the BTSs. Typically a BSC has of BTSs under its control. The BSC handles allocation of radio channels, receives measurements ");
+glColor3f(0.0f,1.0f,0.0f);
+drawstring(20.0,305.0,1.0,"from the mobile phones, and controls handovers from BTS to BTS. A key function of the BSC is to act as a concentrator where many different low capacity connections to BTSs become reduced to a smaller number of ");
+glColor3f(0.0f,1.0f,0.0f);
+drawstring(20.0,290.0,1.0," different low capacity connections to BTSs become reduced to a smaller number ofconnections towards the mobile switching center (MSC).Overall, this means that networks are often structured to have many BSCs distributed");
+glColor3f(0.0f,1.0f,0.0f);
+drawstring(20.0,275.0,1.0,"Overall, this means that networks are often structured to have many BSCs distributed into regions near their BTSs which are then connected to large centralised MSC sites.    ");
+glColor3f(1.0f,0.0f,0.0f);
+drawstring(20.0,250.0,1.0," MSC : Mobile Switching centre      ");
+glColor3f(0.0f,1.0f,0.0f);
+drawstring(20.0,235.0,1.0,"The mobile switching center (MSC) is the primary service delivery node for GSM/CDMA, responsible for routing voice calls and SMS as well as other services.");
+glColor3f(0.0f,1.0f,0.0f);
+drawstring(20.0,220.0,1.0,"The MSC sets up and releases the end-to-end connection, handles mobility and hand-over requirements during the call and takes care of real time pre-paid account monitoring.");
+glColor3f(0.0f,1.0f,0.0f);
+drawstring(20.0,205.0,1.0,"In the GSM mobile phone system,fax and data information is sent directly digitally encoded to the MSC. Only at the MSC is this re-coded into an analog signal");
+glColor3f(0.0f,1.0f,0.0f);
+drawstring(20.0,190.0,1.0," There are various types of MSCs. To name a few Gateway MSC, Visitor MSC, Anchor MSC is one of the few of the MSCs");
 
+}
+void help2()
+{
+glColor3f(1.0f,1.0f,1.0f);
+drawstring(20.0,455.0,1.0,"HELP- Various Terminologies used in the project are explained below ");
+}
 void mobile_stn(int choice)		// to draw the sender and receiver MS
 { int j;int temp=5;
 	switch(choice)
@@ -1168,6 +1234,7 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
 				draw_bsc(130,270,1);
 				draw_bsc(230,270,1);
 				draw_bsc(330,270,1);
+				draw_bsc(230,140,1);
 				//channel b/n bsc vlr
 				glBegin(GL_POLYGON);
 				 glColor3f(1,0.0,0.0);
@@ -1210,10 +1277,40 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
 				// Authentication channel linking
 				glBegin(GL_POLYGON);
 				 glColor3f(1,0.0,0.0);
-				 glVertex2f(310+100,335);
-				 glVertex2f(310+100,340);
-				 glVertex2f(330+100,340);
-				 glVertex2f(330+100,335);
+				 glVertex2f(310,335-130);
+				 glVertex2f(310,340-130);
+				 glVertex2f(330,340-130);
+				 glVertex2f(330,335-130);
+				glEnd();
+				//link mscvlr to hlr
+				glBegin(GL_POLYGON);
+				 glColor3f(1,0.0,0.0);
+				 glVertex2f(335+30-100,220);
+				 glVertex2f(340+30-100,220);
+				 glVertex2f(340+30-100,270);
+				 glVertex2f(335+30-100,270);
+				glEnd();
+				//link mscvlr2 to hlr
+				glBegin(GL_POLYGON);
+				 glColor3f(1,0.0,0.0);
+				 glVertex2f(335+20,230);
+				 glVertex2f(340+20,230);
+				 glVertex2f(340+20,270);
+				 glVertex2f(335+20,270);
+				glEnd();
+				glBegin(GL_POLYGON);
+				 glColor3f(1,0.0,0.0);
+				 glVertex2f(355,235);
+				 glVertex2f(355,230);
+				 glVertex2f(290,230);
+				 glVertex2f(290,235);
+				glEnd();
+				glBegin(GL_POLYGON);
+				 glColor3f(1,0.1,0.0);
+				 glVertex2f(290,230);
+				 glVertex2f(285,230);
+				 glVertex2f(285,235);
+				 glVertex2f(290,235);
 				glEnd();
 				//VLR inside
 				glBegin(GL_POLYGON);
@@ -1241,46 +1338,47 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
 				//draw auc
  				glBegin(GL_LINE_LOOP); 
 				 glColor3f(1.0,0.0,0.0);
-				 glVertex2f(430,340);
-				glVertex2f(440,350);
-				glVertex2f(450,350);
-				glVertex2f(460,340);
-				glVertex2f(450,330);
-				glVertex2f(440,330);
-				glVertex2f(430,340);
+				 glVertex2f(430-100,340-130);
+				glVertex2f(440-100,350-130);
+				glVertex2f(450-100,350-130);
+				glVertex2f(460-100,340-130);
+				glVertex2f(450-100,330-130);
+				glVertex2f(440-100,330-130);
+				glVertex2f(430-100,340-130);
 			   glEnd(); 
 			   glBegin(GL_LINE_LOOP); 
 				glColor3f(1.0,0.0,0.0);
-				glVertex2f(430,340);
-				glVertex2f(440,330);
-				glVertex2f(450,330);
-				glVertex2f(460,340);
-				glVertex2f(460,323);
-				glVertex2f(450,313);
-				glVertex2f(440,313);
-				glVertex2f(430,323);
-				glVertex2f(430,340);
+				glVertex2f(430-100,340-130);
+				glVertex2f(440-100,330-130);
+				glVertex2f(450-100,330-130);
+				glVertex2f(460-100,340-130);
+				glVertex2f(460-100,323-130);
+				glVertex2f(450-100,313-130);
+				glVertex2f(440-100,313-130);
+				glVertex2f(430-100,323-130);
+				glVertex2f(430-100,340-130);
 			   glEnd(); 
 			   glBegin(GL_LINES);
 				glColor3f(1.0,0.0,0.0);
-				glVertex2f(440,330);
-				glVertex2f(440,315);
+				glVertex2f(440-100,330-130);
+				glVertex2f(440-100,315-130);
 			   glEnd();
 			   glBegin(GL_LINES);
 			    glColor3f(1.0,0.0,0.0);
-				glVertex2f(450,330);
-				glVertex2f(450,315);
+				glVertex2f(450-100,330-130);
+				glVertex2f(450-100,315-130);
 		       glEnd();
 			   glBegin(GL_LINES);
 				glColor3f(0.0,1.0,0.0);
-				glVertex2f(435,345);
-				glVertex2f(455,335);
+				glVertex2f(435-100,345-130);
+				glVertex2f(455-100,335-130);
 			   glEnd();
 			   glBegin(GL_LINES);
 				glColor3f(0.0,1.0,0.0);
-				glVertex2f(455,345);
-				glVertex2f(435,335);
+				glVertex2f(455-100,345-130);
+				glVertex2f(435-100,335-130);
 			   glEnd();
+			   //end auc
 				glColor3f(1.0f,1.0f,1.0f);
  				drawstring(345.0,20.0,1.0,"RECEIVER");
 				glColor3f(1.0f,1.0f,1.0f);
@@ -1313,6 +1411,10 @@ void mobile_stn(int choice)		// to draw the sender and receiver MS
  				drawstring(165.0,310.0,1.0,"BSC");
  				glColor3f(1.0f,1.0f,1.0f);
  				drawstring(265.0,310.0,1.0,"MSC/VLR");
+ 				glColor3f(1.0f,1.0f,1.0f);	
+ 				drawstring(265.0,180.0,1.0,"HLR");
+ 				glColor3f(1.0f,1.0f,1.0f);	
+ 				drawstring(255+80.0,170.0,1.0,"AUC");
  				glColor3f(1.0f,1.0f,1.0f);
  				drawstring(365.0,310.0,1.0,"MSC/VLR 2");temp=5;
  				//draw poygon on tower
@@ -1382,50 +1484,51 @@ void title()												// to draw the starting screen
 {	glClear(GL_COLOR_BUFFER_BIT);
 	setFont(GLUT_BITMAP_HELVETICA_18);
 	glColor3f(1.0,1.0,1.0);
-	drawstring(20.0,435.0,1.0,"*  * G R A P H I C A L   I L L U S T R A T I O N   OF   GSM CALL SETUP *  *");
+	drawstring(20.0,435.0,1.0,"                             *  * G R A P H I C A L   I L L U S T R A T I O N   OF   GSM CALL SETUP *  *");
 	glColor3f(1.0,1.0,1.0);
 	drawstring(210.0,365.0,1.0,"SUBMITTED   BY");				
 	glColor3f(0.0,1.0,1.0);
-	drawstring(180.0,340.0,1.0," Nitesh A Jain      1BY10CS047");
+	drawstring(180.0,340.0,1.0," Nitesh A Jain                      1BY10CS047");
 	glColor3f(0.0,1.0,1.0);
 	drawstring(180.0,320.0,1.0," Parthasarathy M Alwar       1BY10CS049");
 	glColor3f(1.0,1.0,1.0);
 	drawstring(190.0,260.0,1.0,"UNDER THE GUIDANCE OF");
 	glColor3f(0.0,1.0,1.0);
-	drawstring(70.0,230.0,1.0," Guide ");
+	drawstring(70.0,230.0,1.0,"                     Mr. Muneshwara, M.S.                            Mrs. Ambika. G.N ");
 	setFont(GLUT_BITMAP_HELVETICA_12);
 	glColor3f(0.0,1.0,1.0);
-	drawstring(190.0,230.0,1.0," Guide Degrees .");		
+	drawstring(70.0,215.0,1.0,"                            B.E, (M.Tech), Dept. of CS&E                                     M.Tech, Dept. of CS&E");
 	glColor3f(0.0,1.0,1.0);
-	drawstring(70.0,215.0,1.0,"  Lecturer, Dept. of CS&E");
-	glColor3f(0.0,1.0,1.0);
-	drawstring(70.0,200.0,1.0,"  BMSIT");
+	drawstring(70.0,200.0,1.0,"                             BMSIT                                                                    BMSIT");
+	draw_key_int();
 	glFlush();
 }
-void draw_key_int(void)				// text for keyboard interaction
+
+void draw_key_int1(void)	// ext for keyboard interaction
 {	glColor3f(0.0,0.0,0.0);
-	glBegin(GL_POLYGON);
-	glVertex2f(0,0);
-	glVertex2f(0,135);
-	glVertex2f(500,135);
-	glVertex2f(500,0);
-	glEnd();
-	glFlush();
-	glColor3f(1.0f,1.0f,1.0f);
-	setFont(GLUT_BITMAP_HELVETICA_18);
-	drawstring(360.0,130.0,1.0,"DO U WISH TO CONTINUE?");
-	glColor3f(1.0f,1.0f,1.0f);
-	drawstring(360.0,110.0,1.0,"PRESS  Y/N");
-	glFlush();
+glBegin(GL_POLYGON);
+glVertex2f(0,0);
+glVertex2f(0,135);
+glVertex2f(500,135);
+glVertex2f(500,0);
+glEnd();
+glFlush();
+glColor3f(1.0f,1.0f,1.0f);
+setFont(GLUT_BITMAP_HELVETICA_18);
+drawstring(360.0,130.0,1.0,"Next Page");
+glColor3f(1.0f,1.0f,1.0f);
+drawstring(360.0,110.0,1.0,"Enter a number :  ");
+glFlush();
 }
 void mykeyboard(unsigned char key,int x,int y)
 {  if(key=='y' || key=='Y')
-	{
+	{      glClear(GL_COLOR_BUFFER_BIT);
 		draw();
 		text();
 	}
 	else if(key=='N' || key=='n')
 		exit(0);
+	
 }
 
 void myMouse(int btn, int state, int x, int y)
@@ -1447,30 +1550,36 @@ void myMouse(int btn, int state, int x, int y)
 		}
 		if((x>=180 && x<=305) && (y>=311 && y<=333 ))  // 3 menu
 		{
-			;
+		glClear(GL_COLOR_BUFFER_BIT);
+		glColor3f(1.0,1.0,1.0);
+		help();
+		draw_key_int1();
+		scanf("%d",&helpf);
+		 helpf=0;
+ 		 glClear(GL_COLOR_BUFFER_BIT);
+ 		 glClearColor(0.0,0.0,0.0,0.0);
+		 help2();
+		 draw_key_int();
+		 
+		
+		
 		}
 		if((x>=180 && x<=305) && (y>=269 && y<=293 ))  // 4 menu
 		{
-			;
+			exit(0);
 		}
 		if((x>=180 && x<=305) && (y>=226 && y<=249 ))  // 5 menu
 		{
 				;
 		}
 
-		if((x>=180 && x<=305) && (y>=183+24 && y<=206+24 ))  // 6 menu
-		{
-				exit(0);
-		}
+
 	}
 }
 void display(void)
 { 	glClear(GL_COLOR_BUFFER_BIT);
 	title();
-	delay();
-	glClear(GL_COLOR_BUFFER_BIT);
-	draw();
-	text();
+	
 }
 int main(int argc,char **argv)
 {
